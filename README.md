@@ -1,6 +1,6 @@
-## Visualizing IDP Data from Mali
+## Visualizing ebola data available on HDX
 
-This repository contains the work done for visualizing IDP data available in HDX.
+This repository contains the work done for visualizing ebola data available in HDX.
 
 ## Dependencies
 **MapBox.js** -- for the map.
