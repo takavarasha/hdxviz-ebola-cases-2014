@@ -1,62 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset=utf-8 />
-  <title>IDPs from Mali</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta charset=utf-8 />
+    <title>West Africa Ebola crisis cases and deaths</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-  <!-- loading font -->
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- loading font -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700' rel='stylesheet' type='text/css'>
 
-  <!-- Loading jquery -->
-  <script src='js/jquery.js'></script>
+    <!-- Loading jquery -->
+    <script src='js/jquery.js'></script>
 
-  <!-- Loading c3 + d3 -->
-  <script src='js/d3.min.js'></script>
-  <script src='js/c3.js'></script>
-  <link href='css/c3.css' rel='stylesheet' />
+    <!-- Loading c3 + d3 -->
+    <script src='js/d3.min.js'></script>
+    <script src='js/c3.js'></script>
+    <link href='css/c3.css' rel='stylesheet' />
 
-  <!-- Loading style sheets that match our current site -->
-  <link rel='stylesheet' id='bean-css'  href='css/framework.css' type='text/css' media='all' />
-  <link rel='stylesheet' id='main-style-css'  href='css/style.css' type='text/css' media='all' />
-  <link rel='stylesheet' id='mobile-css'  href='css/mobile.css' type='text/css' media='all' />
-  <link rel='stylesheet' id='font-awesome-four-css'  href='css/font-awesome.min.css' type='text/css' media='all' />
+    <!-- Loading style sheets that match our current site -->
+    <link rel='stylesheet' id='bean-css'  href='css/framework.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='main-style-css'  href='css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='mobile-css'  href='css/mobile.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-four-css'  href='css/font-awesome.min.css' type='text/css' media='all' />
 
-
-  <!-- in-page style -->
-  <style>
+<!-- in-page style -->
+<style>
     body {
-      font-family: 'Source Sans Pro';
-      margin-top:20px;
-      width: 100%;
+        font-family: 'Source Sans Pro';
+        margin-top:20px;
+        width: 100%;
     }
-  </style>
+</style>
 
 </head>
 
 <body>
-<div class="row" style="padding-bottom: 40px;">
-  <h1><strong>Internally Displaced Persons in Mali</strong></h1>
-</div>
-<div class="row">
-  <div class='twelve columns' style="padding-left: 0px;">
-    <p>The data on IDPs is compiled by IOM through their Displacement Tracking Matrix (DTM) exercise and through field evaluations carried out by the partners of the Commission on Population Movements.</p>
-    <p>The dataset highlights the number of IDPs in Mali by region from Sep '12 - Jul '14.</p>
-    <a href="https://data.hdx.rwlabs.org/dataset/idps-data-by-region-in-mali" class="btn btn-default btn-lg">Download data in HDX</a>
-  </div>
+    <div class="row" style="padding-bottom: 20px;">
+        <h1><strong>West Africa Ebola crisis cases and deaths</strong></h1>
+    </div>
 
-  <!-- loading the bar chart scripts -->
-  <div id="barChartTotal" class="twelve columns"></div>
-  <div id="barChartDays" class="twelve columns"></div>
+    <div class="row">
+        <div class='twelve columns' style="padding-left: 0px;">Total number of probable, confirmed and suspected Ebola cases and deaths in Guinea, Liberia, Sierra Leone, Nigeria and Senegal as at 5 September. Extracted from WHO: Ebola Response Roadmap Situation Report 2 (5 September 2014). The dataset highlights the number of Ebola cases in Guinea, Liberia, Sierra Leone and Nigeria.</div>
+    </div>
 
-  <!-- loading the gauge chart scripts -->
-  <div id="gaugeChart1" class="two columns"></div>
-  <div id="gaugeChart2" class="two columns"></div>
-  <div id="gaugeChart3" class="two columns"></div>
-  <div id="gaugeChart4" class="two columns"></div>
-  <div id="gaugeChart5" class="two columns"></div>
+    <div class="row">
+        <div class="twelve columns" style="padding-left: 0px">
+            <div class="btn btn-default btn-sm one columns" onclick="showSept5()">Sept 5</div>
+            <div class="btn btn-default btn-sm one columns" onclick="showAug29()">Aug 29</div>
+            <div class="three columns"><a href="https://data.hdx.rwlabs.org/dataset/ebola-cases-2014" class="btn btn-default btn-lg">Download data in HDX</a></div>
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="twelve columns">
+            <h4 id="cumulativeChartTitle">Total number of Ebola cases and deaths as at 5 September</h4>
+        </div>
+    </div>
 
-</div>
+    <div class="row">
+        <div id="cumulativeChart" class="twelve columns"></div>
+    </div>
+
+    <p></p>
+    <div class="row">
+        <div class="twelve columns">
+            <h4 id="last21DaysChartTitle">Number of Ebola cases and deaths for the last 21 days up to 5 September</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="last21DaysChart" class="twelve columns"></div>
+    </div>
+
+
+    <p></p>
+    <div class="row">
+        <div class="twelve columns">
+            <h4 id="caseFatalityRateChartTitle">Number of Ebola cases and deaths for the last 21 days up to 5 September</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="gaugeChart1" class="two columns"></div>
+        <div id="gaugeChart2" class="two columns"></div>
+        <div id="gaugeChart3" class="two columns"></div>
+        <div id="gaugeChart4" class="two columns"></div>
+        <div id="gaugeChart5" class="two columns"></div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="twelve columns" style="padding-left: 0px">
+            <div class="three columns">
+                <a href="https://data.hdx.rwlabs.org/dataset/ebola-cases-2014" class="btn btn-default btn-lg">Download data in HDX</a>
+            </div>
+        </div>
+    </div>
 
 <!-- Specific chart style -->
 <style>
@@ -70,242 +107,7 @@
 
 
 <!-- Scripts for the charts -->
-<script>
-  //// first bar chart
-  // this bar chart visualizes the total case + deaths counts
-  var barChartTotal = c3.generate({
-    bindto: '#barChartTotal',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'bar'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 300,
-        width: 800
-      }
-  });
-
-
-  //// second bar chart
-  var barChartDays = c3.generate({
-    bindto: '#barChartDays',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'bar'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 300,
-        width: 800
-      }
-  });
-
-
-  //// section with the different gauge charts -- 5 of them
-  // Country 1
-  var gaugeChart1 = c3.generate({
-    bindto: '#gaugeChart1',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 2
-  var gaugeChart2 = c3.generate({
-    bindto: '#gaugeChart2',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 3
-  var gaugeChart3 = c3.generate({
-    bindto: '#gaugeChart3',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 4
-  var gaugeChart4 = c3.generate({
-    bindto: '#gaugeChart4',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 5
-  var gaugeChart5 = c3.generate({
-    bindto: '#gaugeChart5',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-</script>
+<script src='js/charts.js'></script>
 
 <script>
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
