@@ -64,32 +64,22 @@ function generateEbolaStackedBarChart(bindTo, url) {
 /*
 This function generate a gauge chart for a country 
 */
-function generateGaugeChart(bindTo) {
+function generateGaugeChart(bindTo, value) {
 	return c3.generate({
 		bindto: bindTo,
 		data: {
-			x: 'date',
-			url: 'data/idp_data.csv',
+			columns: [
+				["data", value],
+			],
 			type: 'gauge'
 		},
-		axis: {
-			x: {
-				type: 'timeseries',
-				tick: {
-					format: '%B, %Y'
-				}
-			},
-			y: {
-				show: true
-			}
+		color: {
+			pattern: ["#FF0000", "#F97600", "F6C600", "#60B044"]
 		},
 		tooltip: {
 			format: {
 				value: d3.format(',')
 			}
-		},
-		point: {
-			show: false
 		},
 		size: {
 			height: 100,
@@ -98,171 +88,10 @@ function generateGaugeChart(bindTo) {
 	});
 };
 
-var barChartTotal = generateEbolaStackedBarChart("#cumulativeChart","data/cumulative.csv");
-var barChartLast21Days = generateEbolaStackedBarChart("#last21DaysChart","data/last_21days.csv")
-
-  //// section with the different gauge charts -- 5 of them
-  // Country 1
-  var gaugeChart1 = c3.generate({
-    bindto: '#gaugeChart1',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 2
-  var gaugeChart2 = c3.generate({
-    bindto: '#gaugeChart2',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 3
-  var gaugeChart3 = c3.generate({
-    bindto: '#gaugeChart3',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 4
-  var gaugeChart4 = c3.generate({
-    bindto: '#gaugeChart4',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-  });
-
-  // Country 5
-  var gaugeChart5 = c3.generate({
-    bindto: '#gaugeChart5',
-      data: {
-        x: 'date',
-        url: 'data/idp_data.csv',
-        type: 'gauge'
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-            tick: {
-              format: '%B, %Y'
-            }
-        },
-        y: {
-          show: true
-        }
-      },
-      tooltip: {
-        format: {
-          value: d3.format(',')
-        }
-      },
-      point: {
-        show: false
-      },
-      size: {
-        height: 100,
-        width: 100
-      }
-});
+var barChartTotal = generateEbolaStackedBarChart("#cumulativeChart","data/cumulative_20140905.csv");
+var barChartLast21Days = generateEbolaStackedBarChart("#last21DaysChart","data/last_21days_20140905.csv");
+var guineaCFRChart = generateGaugeChart("#guineaCFRChart", 20);
+var liberiaCFRChart = generateGaugeChart("#liberiaCFRChart", 40);
+var sieraLeoneCFRChart = generateGaugeChart("#sieraLeoneCFRChart", 60);
+var nigeriaCFRChart = generateGaugeChart("#nigeriaCFRChart", 80);
+var senegalCFRChart = generateGaugeChart("#senegalCFRChart", 100);

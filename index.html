@@ -46,7 +46,6 @@
         <div class="twelve columns" style="padding-left: 0px">
             <div class="btn btn-default btn-sm one columns" onclick="showSept5()">Sept 5</div>
             <div class="btn btn-default btn-sm one columns" onclick="showAug29()">Aug 29</div>
-            <div class="three columns"><a href="https://data.hdx.rwlabs.org/dataset/ebola-cases-2014" class="btn btn-default btn-lg">Download data in HDX</a></div>
         </div>
     </div>
     <p></p>
@@ -75,16 +74,16 @@
     <p></p>
     <div class="row">
         <div class="twelve columns">
-            <h4 id="caseFatalityRateChartTitle">Number of Ebola cases and deaths for the last 21 days up to 5 September</h4>
+            <h4 id="caseFatalityRateChartTitle">Case fatality rate  of Ebola cases and deaths for the last 21 days up to 5 September</h4>
         </div>
     </div>
 
     <div class="row">
-        <div id="gaugeChart1" class="two columns"></div>
-        <div id="gaugeChart2" class="two columns"></div>
-        <div id="gaugeChart3" class="two columns"></div>
-        <div id="gaugeChart4" class="two columns"></div>
-        <div id="gaugeChart5" class="two columns"></div>
+        <div id="guineaCFRChart" class="two columns"></div>
+        <div id="liberiaCFRChart" class="two columns"></div>
+        <div id="sieraLeoneCFRChart" class="two columns"></div>
+        <div id="nigeriaCFRChart" class="two columns"></div>
+        <div id="senegalCFRChart" class="two columns"></div>
     </div>
     <p></p>
     <div class="row">
@@ -110,7 +109,7 @@
 <script src='js/charts.js'></script>
 
 <script>
-document.body.innerHTML ="" //clear the whole page
+//document.body.innerHTML ="" //clear the whole page
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
