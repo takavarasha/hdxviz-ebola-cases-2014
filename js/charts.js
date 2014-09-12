@@ -87,11 +87,3 @@ function generateGaugeChart(bindTo, value) {
 		}
 	});
 };
-
-var barChartTotal = generateEbolaStackedBarChart("#cumulativeChart","data/cumulative_20140905.csv");
-var barChartLast21Days = generateEbolaStackedBarChart("#last21DaysChart","data/last_21days_20140905.csv");
-var guineaCFRChart = generateGaugeChart("#guineaCFRChart", 20);
-var liberiaCFRChart = generateGaugeChart("#liberiaCFRChart", 40);
-var sieraLeoneCFRChart = generateGaugeChart("#sieraLeoneCFRChart", 60);
-var nigeriaCFRChart = generateGaugeChart("#nigeriaCFRChart", 80);
-var senegalCFRChart = generateGaugeChart("#senegalCFRChart", 100);

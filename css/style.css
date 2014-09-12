@@ -259,7 +259,7 @@ input[type="button"],
 input[type="reset"], 
 input[type="submit"],
 .entry-content a.more-link {
-    background-color: #404040;
+    background-color: #007ce0;
 	border-radius: 3px;
 	border: none;
 	color: #FFF;
@@ -268,7 +268,7 @@ input[type="submit"],
 	font: bold 15px "Source Sans Pro", Arial, Helvetica, Geneva, sans-serif;
 	margin: 1px 1px 4px 0; 
 	outline: none;
-	padding: 15px 18px;
+	padding: 9px 11px;
 	text-align: center;
 	-webkit-box-shadow: none!important;
 	   -moz-box-shadow: none!important;
