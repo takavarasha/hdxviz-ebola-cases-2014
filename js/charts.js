@@ -1,5 +1,6 @@
 var casesColorPalette = ['rgb(255,237,160)','rgb(254,178,76)','rgb(240,59,32)'];
 var deathsColorPalette = ['rgb(236,226,240)','rgb(166,189,219)','rgb(28,144,153)'];
+var cases
 
 /*
 This function generates the stacked bar graph
@@ -34,7 +35,8 @@ function generateEbolaStackedBarChart(bindTo, url) {
 		},
 		axis: {
 			y: {
-				show: true
+				show: true,
+				max: 2000
 			},
 			x: {
 				show: true,
