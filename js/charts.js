@@ -1,5 +1,7 @@
-var casesColorPalette = ['rgb(255,237,160)','rgb(254,178,76)','rgb(240,59,32)'];
-var deathsColorPalette = ['rgb(236,226,240)','rgb(166,189,219)','rgb(28,144,153)'];
+//var casesColorPalette = ['rgb(255,237,160)','rgb(254,178,76)','rgb(240,59,32)'];
+//var deathsColorPalette = ['rgb(236,226,240)','rgb(166,189,219)','rgb(28,144,153)'];
+var casesColorPalette = ['rgb(255,237,160)','rgb(95, 107, 119)','rgb(240,59,32)'];
+var deathsColorPalette = ['rgb(0,0,0)','rgb(166,189,219)','rgb(28,144,153)'];
 var cases
 
 /*
@@ -52,8 +54,7 @@ function generateEbolaStackedBarChart(bindTo, url) {
 			}
 		},
 		size: {
-			height: 300,
-			width: 800
+			height: 300
 		},
 		bar: {
 			width: {
@@ -61,7 +62,7 @@ function generateEbolaStackedBarChart(bindTo, url) {
 			}
 		}
 	});
-}
+};
 
 /*
 This function generate a gauge chart for a country 

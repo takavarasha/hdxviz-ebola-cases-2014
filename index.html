@@ -41,14 +41,18 @@
             </div>
     </div>
 
-    <div class="row">
-        <div class='twelve columns' style="padding-left: 0px;">Total number of probable, confirmed and suspected Ebola cases and deaths in Guinea, Liberia, Sierra Leone, Nigeria and Senegal as at 5 September. Extracted from WHO: Ebola Response Roadmap Situation Report 2 (5 September 2014). The dataset highlights the number of Ebola cases in Guinea, Liberia, Sierra Leone and Nigeria.</div>
-    </div>
 
+    <div class="row">
+        <div class='twelve columns' style="padding-left: 0px;">Total number of probable, confirmed and suspected Ebola cases and deaths in Guinea, Liberia, Sierra Leone, Nigeria and Senegal. The data is extracted from <a href="http://www.who.int/csr/disease/ebola/situation-reports/en/">WHO Ebola Response Roadmap Situation Reports</a>.</div>
+    </div>
+		
+	<p></p>
+	
     <div class="row">
         <div class="twelve columns" style="padding-left: 0px">
 			<div class="btn btn-default btn-sm one columns" onclick="showSept16()">Sept 16</div>
-			<div class="btn btn-default btn-sm one columns" onclick="showSept12()">Sept 12</div>		
+			<div class="btn btn-default btn-sm one columns" onclick="showSept12()">Sept 12</div>
+			<div class="btn btn-default btn-sm one columns" onclick="showSept8()">Sept 8</div>			
             <div class="btn btn-default btn-sm one columns" onclick="showSept5()">Sept 5</div>
             <div class="btn btn-default btn-sm one columns" onclick="showAug29()">Aug 29</div>
         </div>
@@ -64,7 +68,13 @@
     <div class="row">
         <div id="cumulativeChart" class="twelve columns"></div>
     </div>
-
+	
+	<p></P>
+	<div class="row">
+        <div class='twelve columns' style="padding-left: 0px;" id="dataFooterSummaryText">Liberia</div>
+    </div>
+	
+<!--
     <p></p>
     <div class="row">
         <div class="twelve columns">
@@ -75,7 +85,7 @@
     <div class="row">
         <div id="last21DaysChart" class="twelve columns"></div>
     </div>
-<!--
+
     <p></p>
     <div class="row">
         <div class="twelve columns">
@@ -117,32 +127,38 @@ var barChartLast21Days;// = generateEbolaStackedBarChart("#last21DaysChart","dat
 //var senegalCFRChart = generateGaugeChart("#senegalCFRChart", 100);
 
 function showSept16() {
-	configureCharts("16 September 2014", "data/cumulative_20140916.csv", "data/last_21days_20140916.csv");
+	configureCharts("16 September 2014", "data/cumulative_20140916.csv",37,28);
 };
 
 function showSept12() {
-	configureCharts("12 September 2014", "data/cumulative_20140912.csv", "data/last_21days_20140912.csv");
+	configureCharts("12 September 2014", "data/cumulative_20140912.csv",36,29);
 };
 
 function showSept5() {
-	configureCharts("5 September 2014", "data/cumulative_20140905.csv", "data/last_21days_20140905.csv");
+	configureCharts("5 September 2014", "data/cumulative_20140905.csv",40,29);
+};
+
+function showSept8() {
+	configureCharts("8 September 2014", "data/cumulative_20140908.csv",40,29);
 };
 
 function showAug29() {
-	configureCharts("29 August 2014", "data/cumulative_20140829.csv", "data/last_21days_20140829.csv");
+	configureCharts("29 August 2014", "data/cumulative_20140829.csv",32,32);
 };
 
-function configureCharts(reportDate, cumulativeDataUrl, last21DaysDataUrl) {
+function configureCharts(reportDate, cumulativeDataUrl, liberia,guinea) {
 	document.getElementById("cumulativeChartTitle").innerHTML = "Total number of Ebola cases and deaths as at " + reportDate;
-	document.getElementById("last21DaysChartTitle").innerHTML = "Number of Ebola cases and deaths for 21 days up to " + reportDate;
-	//document.getElementById("caseFatalityRateChartTitle").innerHTML = "Number of Ebola cases and deaths for 21 days up to " + reportDate;
+	document.getElementById("dataFooterSummaryText").innerHTML = "As at " + reportDate + ", Liberia had " + liberia + "% of the total confirmed number of deaths, followed by Guinea with " + guinea + "%.";
 	barChartTotal = generateEbolaStackedBarChart("#cumulativeChart", cumulativeDataUrl);
-	barChartLast21Days = generateEbolaStackedBarChart("#last21DaysChart", last21DaysDataUrl);
 };
+
+
+
+
 
 showSept16();
 
-document.getElementById("cfrCharts").style.display = "none";
+//document.getElementById("cfrCharts").style.display = "none";
 
 //document.body.innerHTML ="" //clear the whole page
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
