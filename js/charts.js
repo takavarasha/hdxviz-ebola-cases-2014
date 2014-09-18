@@ -125,7 +125,14 @@ function generateMainChart(bindTo,data) {
 		bindto: bindTo,
 		data: {
 			x: "country",
-			columns: getMainChartData()
+			columns: getMainChartData(),
+			types: {
+				Guinea: "spline",
+				Liberia: "spline",
+				Nigeria: "Spline",
+				SierraLeone: "area-spline",
+				Senegal: "spline"
+			}
 		},
 		axis: {
 			x: {
