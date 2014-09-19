@@ -49,12 +49,22 @@
 	<p></p>
 	<div class="row">
         <div class="twelve columns">
-            <h4 id="mainChartTitle">Number of Ebola cases by affected country as at 18 September 2014</h4>
+            <h4 id="mainChartTitle">Option A: Number of Ebola cases by affected country as at 18 September 2014</h4>
         </div>
     </div>
     <div class="row">
         <div id="mainChartArea" class="twelve columns"></div>
     </div>
+	
+		<p></p>
+	<div class="row">
+        <div class="twelve columns">
+            <h4 id="senegalChartTitle">Option B: Number of Ebola cases by affected country as at 18 September 2014</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div id="mainChartAreaB" class="twelve columns"></div>
+    </div>	
 	
 	<p></p>
 	<div class="row">
@@ -69,6 +79,16 @@
 	<p></p>
 	<div class="row">
         <div class="twelve columns">
+            <h4 id="sierraLeoneChartTitle">Number of Ebola cases in Sierra Leone as at 18 September 2014</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div id="sierraLeoneChartArea" class="twelve columns"></div>
+    </div>	
+
+	<p></p>
+	<div class="row">
+        <div class="twelve columns">
             <h4 id="guineaChartTitle">Number of Ebola cases in Guinea as at 18 September 2014</h4>
         </div>
     </div>
@@ -79,15 +99,6 @@
 	<p></p>
 	<div class="row">
         <div class="twelve columns">
-            <h4 id="sierraLeoneChartTitle">Number of Ebola cases in Sierra Leone as at 18 September 2014</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div id="sierraLeoneChartArea" class="twelve columns"></div>
-    </div>		
-	<p></p>
-	<div class="row">
-        <div class="twelve columns">
             <h4 id="nigeriaChartTitle">Number of Ebola cases in Nigeria as at 18 September 2014</h4>
         </div>
     </div>
@@ -95,15 +106,7 @@
         <div id="nigeriaChartArea" class="twelve columns"></div>
     </div>		
 	
-	<p></p>
-	<div class="row">
-        <div class="twelve columns">
-            <h4 id="senegalChartTitle">Number of Ebola cases in Senegal as at 18 September 2014</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div id="senegalChartArea" class="twelve columns"></div>
-    </div>		
+	
 
 	
 <!-- Specific chart style -->
@@ -127,7 +130,8 @@ var liberiaChart = generateCountryChart("#liberiaChartArea", null, "Liberia");
 var guineaChart = generateCountryChart("#guineaChartArea", null, "Guinea");
 var sierraLeoneChart = generateCountryChart("#sierraLeoneChartArea", null, "Sierra Leone");
 var nigeriaChart = generateCountryChart("#nigeriaChartArea", null, "Nigeria");
-var senegalChart = generateCountryChart("#senegalChartArea", null, "Senegal");
+var mainChartB = generateMainChartB("#mainChartAreaB");
+
 
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
